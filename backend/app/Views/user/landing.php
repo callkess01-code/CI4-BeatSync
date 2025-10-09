@@ -36,7 +36,7 @@ $events = [
     [
         'id' => 3,
         'title' => 'Dark Halloween Rave',
-        'image' => 'https://scontent.fmnl9-2.fna.fbcdn.net/v/t39.30808-6/503040321_685029571162999_8399625462016170612_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGMDU8qrlfYQL47Xi0w9LuTiNtWr4c6p2OI21avhzqnY5iB9w5bE_02C1oj0Yn1r0S9opBgQXBB-VUQrQWmBvfA&_nc_ohc=DmRtiwyLn6QQ7kNvwEDKmXa&_nc_oc=AdkBvjwFrzxMYIRpMvqWrRZc1spHHIq172lq47zvL9ElkAMKMHiGBSoNBS0TZF4kENk&_nc_zt=23&_nc_ht=scontent.fmnl9-2.fna&_nc_gid=mFgpIb_tmxTGu6Opn9E7fA&oh=00_AfZEHEKcDSsxHU9RplPXdtF1nbguqOs4ENZ6IZKWbuzTfA&oe=68D8031A',
+        'image' => 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fedm-addicts.com%2Fevents%2Fdark-festival&psig=AOvVaw0A_MPeUTuBrPsWjOoKsK0S&ust=1760089883686000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwiUoMvz65aQAxVYrq8BHYsFJHkQjRx6BAgAEBo',
         'alt' => 'Dark Halloween music festival with special effects'
     ]
 ];
