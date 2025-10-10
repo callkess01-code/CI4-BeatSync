@@ -115,8 +115,8 @@ $footerLinks = [
             </nav>
 
             <div class="header-actions">
-                <a href="#login" class="login-link">Login</a>
-                <a href="#signup" class="signup-btn">Sign Up</a>
+                <a href="login" class="login-link">Login</a>
+                <a href="signup" class="signup-btn">Sign Up</a>
             </div>
 
             <button class="hamburger" aria-label="Menu">☰</button>
