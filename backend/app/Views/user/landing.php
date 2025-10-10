@@ -19,6 +19,8 @@ $siteConfig = [
     'js_path' => './js/script.js' // fixed .jss → .js
 ];
 
+
+//comments
 // Events data (can be fetched from database)
 $events = [
     [
