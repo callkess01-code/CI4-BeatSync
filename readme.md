@@ -4,9 +4,7 @@
 <br/>
 
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
-  </a>
+  <a href="https://github.com/callckhub100/">
 <!-- * Title Section -->
   <h3 align="center">AD - CI4 BeatSync</h3>
 </div>
@@ -19,7 +17,7 @@ It helps teams quickly bootstrap backend + frontend projects, with simple sample
 
 <br/>
 
-![](https://visit-counter.vercel.app/counter.png?page=zyx-0314/ci4-template)
+![](https://visit-counter.vercel.app/counter.png?page=callckhub100/AD - CI4 BeatSync)
 
 <!-- ! Make sure it was similar to your github -->
 
