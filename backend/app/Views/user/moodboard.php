@@ -1,85 +1,43 @@
 <?php
-// BeatSync - Mood Board Page
-// Dynamic content variables
-$pageTitle = "Mood Board - BeatSync | EDM Brand Guidelines & Design System";
-$pageDescription = "Explore BeatSync's brand guidelines, color palette, typography, and design elements that define our EDM experience.";
-$keywords = "mood board, brand guidelines, design system, color palette, typography, BeatSync, EDM branding";
 
-// Site configuration
-$siteConfig = [
-    'company_name' => 'BeatSync',
-    'contact' => [
-        'address' => '123 BGC, Manila, Philippines',
-        'phone' => '(+63) 967-386-5115',
-        'email' => 'beatsync@gmail.com'
-    ],
-    'current_year' => date('Y'),
-    'assets_path' => './images/event1.jpg',
-    'css_path' => './css/moodboard.css',
-    'js_path' => './js/moodboard-script.js'
-];
+/**
+ * Page: moodboard.php
+ * Visual identity samples and brand guidelines for BeatSync
+ */
 
-// Navigation items
-$navigation = [
-    ['href' => 'landing', 'text' => 'Home'],
-    ['href' => '#events', 'text' => 'Events'],
-    ['href' => '#tickets', 'text' => 'Tickets']
-];
+// Page Configuration
+$pageTitle = "Mood Board | BeatSync";
 
 // Color palette data
 $colorPalette = [
     [
         'name' => 'Primary Red',
-        'hex' => '#FE4858',
+        'hex' => '#FF4057',
         'usage' => 'Main brand color, CTAs, highlights'
     ],
     [
-        'name' => 'Dark Gray',
-        'hex' => '#35373B',
-        'usage' => 'Secondary elements, borders'
+        'name' => 'Lighter Black',
+        'hex' => '#111111',
+        'usage' => 'Card backgrounds, secondary elements'
     ],
     [
         'name' => 'Deep Black',
         'hex' => '#181818',
-        'usage' => 'Background, text on light surfaces'
+        'usage' => 'Main background, primary surface'
     ]
 ];
 
-// Typography data
-$typography = [
-    'headings' => [
-        'font' => 'Bebas Neue',
-        'weight' => '400',
-        'usage' => 'Headlines, titles, hero text'
-    ],
-    'body' => [
-        'font' => 'Inter',
-        'weight' => '300-700',
-        'usage' => 'Body text, descriptions, UI elements'
-    ]
-];
-
-// Button types
-$buttonTypes = [
+// Typography examples
+$typographyExamples = [
     [
-        'name' => 'Primary',
-        'class' => 'btn-primary',
-        'description' => 'Main actions, CTA'
+        'label' => 'HEADINGS: BEBAS NEUE',
+        'sample' => 'LIVE A LIFE THAT IS ONE OF A KIND',
+        'type' => 'heading'
     ],
     [
-        'name' => 'Secondary',
-        'class' => 'btn-secondary',
-        'description' => 'Secondary actions'
-    ],
-    [
-        'name' => 'Border',
-        'class' => 'btn-border',
-        'description' => 'Outline buttons'
-    ],
-    [
-        'name' => 'Disabled',
-        'class' => 'btn-disabled',
-        'description' => 'Inactive state'
+        'label' => 'Body: Inter',
+        'sample' => 'Experience the ultimate EDM journey with world-class DJs that will transform your night into pure magic.',
+        'type' => 'body'
     ]
 ];
 
@@ -102,206 +60,257 @@ $cardSamples = [
     ]
 ];
 
-// Footer links
-$footerLinks = [
-    'Menu' => [
-        ['href' => 'landing.php', 'text' => 'Home'],
-        ['href' => 'landing.php#events', 'text' => 'Line Up'],
-        ['href' => 'landing.php#tickets', 'text' => 'Tickets']
+// Logo variants
+$logoVariants = [
+    [
+        'variant' => 'square',
+        'description' => 'Logo with square background'
     ],
-    'Company' => [
-        ['href' => 'moodboard.php', 'text' => 'Mood Board'],
-        ['href' => 'roadmap.php', 'text' => 'Road Map']
+    [
+        'variant' => 'circle',
+        'description' => 'Logo with circle background'
     ]
 ];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo htmlspecialchars($pageTitle); ?></title>
-    <meta name="description" content="<?php echo htmlspecialchars($pageDescription); ?>" />
-    <meta name="keywords" content="<?php echo htmlspecialchars($keywords); ?>" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle); ?>" />
-    <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription); ?>" />
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="<?php echo $siteConfig['css_path']; ?>">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcallsapp3792back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
-</head>
+<?= view('components/head', [
+    'title' => $pageTitle
+]) ?>
 
 <body>
-    <main class="main-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-logo">
-                <div class="logo-square">
-                    <span class="logo-icon">♥</span>
-                </div>
-                <span class="logo-text">BEATSYNC</span>
-            </div>
+    <?= view('components/header', ['active' => 'Mood Board']) ?>
 
-            <nav class="nav-menu" role="navigation">
-                <?php foreach ($navigation as $nav): ?>
-                    <a href="<?php echo $nav['href']; ?>" class="nav-item" role="menuitem"><?php echo htmlspecialchars($nav['text']); ?></a>
-                <?php endforeach; ?>
-            </nav>
-
-            <div class="header-actions">
-                <a href="#login" class="login-link">Login</a>
-                <a href="#signup" class="signup-btn">Sign Up</a>
-            </div>
-
-            <button class="hamburger" aria-label="Menu">☰</button>
+    <main class="moodboard-main">
+        <header class="moodboard-page-header">
+            <h1 class="moodboard-page-title">MOOD BOARD</h1>
+            <p class="moodboard-page-subtitle">Visual identity samples for BeatSync</p>
         </header>
 
-        <!-- Mood Board Section -->
-        <section class="moodboard-section" id="moodboard">
-            <div class="moodboard-container">
-                <div class="moodboard-header">
-                    <h1 class="moodboard-title bebas-neue">MOOD BOARD</h1>
-                </div>
+        <!-- Color System -->
+        <section class="moodboard-section">
+            <h2 class="section-heading">Color Palette</h2>
+            <div class="color-grid">
+                <?php foreach ($colorPalette as $color): ?>
+                    <?= view('components/cards/card_styles', [
+                        'type' => 'color',
+                        'data' => $color
+                    ]) ?>
+                <?php endforeach; ?>
+            </div>
+        </section>
 
-                <!-- Color Palette -->
-                <div class="section-block" id="color-palette">
-                    <h2 class="section-title bebas-neue">Color Palette</h2>
-                    <div class="color-grid">
-                        <?php foreach ($colorPalette as $color): ?>
-                            <div class="color-card" data-color="<?php echo $color['hex']; ?>">
-                                <div class="color-swatch" style="background-color: <?php echo $color['hex']; ?>"></div>
-                                <div class="color-info">
-                                    <div class="color-hex"><?php echo $color['hex']; ?></div>
-                                    <div class="color-name"><?php echo $color['name']; ?></div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+        <!-- Typography -->
+        <section class="moodboard-section">
+            <h2 class="section-heading">Typography</h2>
+            <div class="typography-grid">
+                <?php foreach ($typographyExamples as $typo): ?>
+                    <?= view('components/cards/card_styles', [
+                        'type' => 'typography',
+                        'data' => $typo
+                    ]) ?>
+                <?php endforeach; ?>
+            </div>
+        </section>
 
-                <!-- Typography -->
-                <div class="section-block" id="typography">
-                    <h2 class="section-title bebas-neue">Typography</h2>
-                    <div class="typography-showcase">
-                        <div class="font-demo">
-                            <h3 class="font-label">HEADINGS: BEBAS NEUE</h3>
-                            <div class="font-sample bebas-neue">LIVE A LIFE THAT IS ONE OF A KIND</div>
-                        </div>
-                        <div class="font-demo">
-                            <h3 class="font-label">Body: Inter</h3>
-                            <div class="font-sample">Experience the ultimate EDM journey with world-class DJs that will transform your night into pure magic.</div>
-                        </div>
-                    </div>
+        <!-- Buttons -->
+        <section class="moodboard-section">
+            <h2 class="section-heading">Buttons</h2>
+            <div class="button-showcase-grid">
+                <div class="button-demo-item">
+                    <?= view('components/buttons/button_primary', ['label' => 'Primary', 'href' => '#']) ?>
+                    <span class="button-demo-label">Primary</span>
                 </div>
-
-                <!-- Buttons -->
-                <div class="section-block" id="buttons">
-                    <h2 class="section-title bebas-neue">Buttons</h2>
-                    <div class="button-showcase">
-                        <?php foreach ($buttonTypes as $button): ?>
-                            <div class="button-demo">
-                                <button class="<?php echo $button['class']; ?>" <?php echo $button['name'] === 'Disabled' ? 'disabled' : ''; ?>>
-                                    <?php echo $button['name']; ?>
-                                </button>
-                                <div class="button-label"><?php echo $button['description']; ?></div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                <div class="button-demo-item">
+                    <?= view('components/buttons/button_secondary', ['label' => 'Secondary', 'href' => '#']) ?>
+                    <span class="button-demo-label">Secondary</span>
                 </div>
-
-                <!-- Card Samples -->
-                <div class="section-block" id="card-samples">
-                    <h2 class="section-title bebas-neue">Card Samples</h2>
-                    <div class="cards-showcase">
-                        <?php foreach ($cardSamples as $card): ?>
-                            <div class="sample-card <?php echo $card['type']; ?>-card">
-                                <h3 class="card-title bebas-neue"><?php echo $card['title']; ?></h3>
-                                <p class="card-description"><?php echo $card['description']; ?></p>
-                                <button class="card-btn">Read More</button>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                <div class="button-demo-item">
+                    <?= view('components/buttons/button_border', ['label' => 'Border', 'href' => '#']) ?>
+                    <span class="button-demo-label">Border</span>
                 </div>
-
-                <!-- Logo -->
-                <div class="section-block" id="logo">
-                    <h2 class="section-title bebas-neue">Logo</h2>
-                    <div class="logo-showcase">
-                        <div class="logo-sample">
-                            <div class="logo-display">
-                                <div class="logo-square large">
-                                    <span class="logo-icon">♥</span>
-                                </div>
-                                <span class="logo-text large">BEATSYNC</span>
-                            </div>
-                            <div class="logo-description">Primary logo with square background</div>
-                        </div>
-                    </div>
+                <div class="button-demo-item">
+                    <?= view('components/buttons/button_disabled', ['label' => 'Disabled', 'href' => '#', 'disable' => true]) ?>
+                    <span class="button-demo-label">Disabled</span>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-main">
-                    <div class="footer-brand">
-                        <div class="footer-logo">
-                            <div class="logo-square">
-                                <span class="logo-icon">♥</span>
-                            </div>
-                            <span class="logo-text">BEATSYNC</span>
-                        </div>
-                        <div class="footer-tagline">The ultimate EDM experience.</div>
-                        <div class="footer-contact">
-                            <p><?php echo htmlspecialchars($siteConfig['contact']['address']); ?></p>
-                            <p>Phone: <?php echo htmlspecialchars($siteConfig['contact']['phone']); ?></p>
-                            <p>Email: <?php echo htmlspecialchars($siteConfig['contact']['email']); ?></p>
-                        </div>
-                        <div class="footer-social">
-                            <a href="#" aria-label="Facebook">f</a>
-                            <a href="#" aria-label="Twitter">𝕏</a>
-                            <a href="#" aria-label="Instagram">📷</a>
-                        </div>
-                    </div>
-
-                    <div class="footer-links">
-                        <?php foreach ($footerLinks as $category => $links): ?>
-                            <div class="footer-column">
-                                <h3><?php echo htmlspecialchars($category); ?></h3>
-                                <ul>
-                                    <?php foreach ($links as $link): ?>
-                                        <li><a href="<?php echo $link['href']; ?>"><?php echo htmlspecialchars($link['text']); ?></a></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
-                    <div class="newsletter-section">
-                        <h3 class="newsletter-title">GET OUR LATEST UPDATES</h3>
-                        <form class="newsletter-form" method="POST" action="index.php">
-                            <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required />
-                            <button type="submit" class="newsletter-btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
+        <!-- Card Samples -->
+        <section class="moodboard-section">
+            <h2 class="section-heading">Card Samples</h2>
+            <div class="cards-sample-grid">
+                <?php foreach ($cardSamples as $card): ?>
+                    <?= view('components/cards/card_styles', [
+                        'type' => 'sample',
+                        'data' => $card
+                    ]) ?>
+                <?php endforeach; ?>
             </div>
+        </section>
 
-            <div class="footer-bottom">
-                <p class="copyright">© Copyright <strong><?php echo htmlspecialchars($siteConfig['company_name']); ?></strong>. All Rights Reserved</p>
+        <!-- Logo -->
+        <section class="moodboard-section">
+            <h2 class="section-heading">Logo</h2>
+            <div class="logo-showcase-grid">
+                <?php foreach ($logoVariants as $logo): ?>
+                    <?= view('components/cards/card_styles', [
+                        'type' => 'logo',
+                        'data' => $logo
+                    ]) ?>
+                <?php endforeach; ?>
             </div>
-        </footer>
+        </section>
     </main>
 
-    <!-- External JavaScript -->
-    <script src="<?php echo $siteConfig['js_path']; ?>"></script>
+    <?= view('components/footer') ?>
+
+    <style>
+        /* Main Container */
+        .moodboard-main {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Moodboard Page Styles */
+        .moodboard-page-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .moodboard-page-title {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            font-size: clamp(60px, 10vw, 120px);
+            font-weight: 400;
+            color: #ffffff;
+            letter-spacing: 4px;
+            margin-bottom: 16px;
+        }
+
+        .moodboard-page-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .moodboard-section {
+            margin-bottom: 80px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid #35373B;
+        }
+
+        .moodboard-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 400;
+            color: #ffffff;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* Grid Layouts */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .typography-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .cards-sample-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .logo-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            width: 100%;
+            justify-items: center;
+        }
+
+        /* Button Showcase */
+        .button-showcase-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .button-demo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .button-demo-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+        }
+
+        /* Button standardization for moodboard */
+        .button-showcase-grid .btn-primary,
+        .button-showcase-grid .btn-secondary,
+        .button-showcase-grid .btn-border {
+            width: 200px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* Hide play icon in secondary button for moodboard */
+        .button-showcase-grid .btn-secondary .btn-icon {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .moodboard-main {
+                padding: 80px 40px;
+            }
+
+            .typography-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .moodboard-main {
+                padding: 100px 60px;
+            }
+
+            .color-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .cards-sample-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </body>
 
 </html>
